@@ -1,0 +1,355 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ExecuTask - Admin Projects</title>
+    
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Arimo:ital,wght@0,400;0,700;1,700&display=swap" rel="stylesheet">
+    
+    <style>
+        body { font-family: 'Arimo', sans-serif; }
+        /* Custom scrollbar for the project list to look like the design */
+        .custom-scrollbar::-webkit-scrollbar {
+            width: 8px;
+        }
+        .custom-scrollbar::-webkit-scrollbar-track {
+            background: #D1D5DB; 
+            border-radius: 4px;
+        }
+        .custom-scrollbar::-webkit-scrollbar-thumb {
+            background: #031926; 
+            border-radius: 4px;
+        }
+    </style>
+</head>
+<body class="bg-[#F4E9CD] flex h-screen overflow-hidden">
+
+    <aside class="w-64 bg-[#D1D5DB] flex flex-col justify-between border-r border-gray-300">
+        
+        <div class="p-6">
+            <a href="../../auth/index.html" class="flex items-center gap-2 mb-8 hover:opacity-80 transition-opacity">
+                <div class="w-8 h-8">
+                    <svg viewBox="0 0 120 120" class="w-full h-full">
+                        <path d="M60 15 A45 45 0 1 1 20 60" fill="none" stroke="#468189" stroke-width="10" stroke-linecap="round" />
+                        <polygon points="15,35 35,35 25,15" fill="#468189" transform="rotate(-30 25 30)" />
+                        <path d="M40 60 L55 75 L85 40" fill="none" stroke="#468189" stroke-width="10" stroke-linecap="round" stroke-linejoin="round" />
+                    </svg>
+                </div>
+                <span class="text-xl font-bold text-[#031926]">ExecuTask</span>
+            </a>
+
+            <nav class="space-y-2">
+                <a href="../dashboard.html" class="flex items-center gap-3 px-4 py-3 text-gray-600 hover:bg-gray-200 rounded-lg transition-colors font-medium">
+                    <i data-lucide="layout-dashboard" class="w-5 h-5"></i>
+                    Dashboard
+                </a>
+
+                <a href="#" class="flex items-center gap-3 px-4 py-3 bg-[#9DBEBB] rounded-lg text-[#031926] font-bold shadow-sm">
+                    <i data-lucide="folder-kanban" class="w-5 h-5"></i>
+                    Projects
+                </a>
+                
+                <a href="../users/index.html" class="flex items-center gap-3 px-4 py-3 text-gray-600 hover:bg-gray-200 rounded-lg transition-colors font-medium">
+                    <i data-lucide="users" class="w-5 h-5"></i>
+                    Users
+                </a>
+                
+                <a href="../history.html" class="flex items-center gap-3 px-4 py-3 text-gray-600 hover:bg-gray-200 rounded-lg transition-colors font-medium">
+                    <i data-lucide="history" class="w-5 h-5"></i>
+                    History
+                </a>
+            </nav>
+        </div>
+
+        <div class="p-6 border-t border-gray-400">
+            <div class="flex items-center gap-3 mb-4">
+                <div class="w-10 h-10 bg-gray-400 rounded-full flex items-center justify-center">
+                    <i data-lucide="user" class="w-6 h-6 text-[#031926]"></i>
+                </div>
+                <div>
+                    <p class="text-sm font-bold text-[#031926]">Admin User</p>
+                    <p class="text-xs text-gray-600">ID: Admin000001</p>
+                </div>
+            </div>
+            
+            <a href="../../auth/index.html" class="flex items-center gap-2 text-[#031926] font-bold hover:text-[#468189] transition-colors text-sm">
+                <i data-lucide="log-out" class="w-4 h-4"></i>
+                Logout
+            </a>
+        </div>
+    </aside>
+
+    <main class="flex-1 overflow-y-auto p-8">
+        
+        <header class="flex justify-between items-start mb-8">
+            <div>
+                <h1 class="text-4xl font-bold text-[#031926] mb-1">Admin Dashboard</h1>
+                <p class="text-gray-700">Welcome, Admin! Track progress and drive success.</p>
+            </div>
+            <div class="flex items-center gap-2 text-[#031926] font-bold">
+                <i data-lucide="calendar" class="w-5 h-5"></i>
+                <span>10 January 2026</span>
+            </div>
+        </header>
+
+        <div class="grid grid-cols-4 gap-6 mb-8">
+            <div class="bg-[#D1D5DB] p-4 rounded-xl shadow-sm relative">
+                <h3 class="font-bold text-[#031926]">Total Projects</h3>
+                <p class="text-4xl font-bold mt-2">1</p>
+                <div class="absolute top-4 right-4 w-10 h-10 bg-[#9DBEBB] rounded-full flex items-center justify-center">
+                    <i data-lucide="clipboard-list" class="w-5 h-5 text-[#031926]"></i>
+                </div>
+            </div>
+            <div class="bg-[#D1D5DB] p-4 rounded-xl shadow-sm relative">
+                <h3 class="font-bold text-[#031926]">In Progress</h3>
+                <p class="text-4xl font-bold mt-2">2</p>
+                <div class="absolute top-4 right-4 w-10 h-10 bg-[#9DBEBB] rounded-full flex items-center justify-center">
+                    <i data-lucide="clock" class="w-5 h-5 text-[#031926]"></i>
+                </div>
+            </div>
+            <div class="bg-[#D1D5DB] p-4 rounded-xl shadow-sm relative">
+                <h3 class="font-bold text-[#031926]">In Review</h3>
+                <p class="text-4xl font-bold mt-2">1</p>
+                <div class="absolute top-4 right-4 w-10 h-10 bg-[#9DBEBB] rounded-full flex items-center justify-center">
+                    <i data-lucide="file-check" class="w-5 h-5 text-[#031926]"></i>
+                </div>
+            </div>
+            <div class="bg-[#D1D5DB] p-4 rounded-xl shadow-sm relative">
+                <h3 class="font-bold text-[#031926]">Completed</h3>
+                <p class="text-4xl font-bold mt-2">0</p>
+                <div class="absolute top-4 right-4 w-10 h-10 bg-[#9DBEBB] rounded-full flex items-center justify-center">
+                    <i data-lucide="check-circle" class="w-5 h-5 text-[#031926]"></i>
+                </div>
+            </div>
+        </div>
+
+        <div class="grid grid-cols-12 gap-8 h-[500px]">
+            
+            <div class="col-span-5 bg-[#D1D5DB] rounded-xl shadow-sm p-6 flex flex-col h-full">
+                <h3 class="font-bold text-[#031926] mb-4 text-lg">Project Progress</h3>
+                
+                <div class="flex-1 overflow-y-auto custom-scrollbar pr-3 space-y-4">
+                    
+                    <div class="bg-[#9DBEBB] p-4 rounded-lg relative">
+                        <div class="flex justify-between items-center mb-2">
+                            <h4 class="font-bold text-[#031926]">Project 1</h4>
+                            <span class="text-xs font-bold text-gray-700">1/3 Tasks</span>
+                        </div>
+                        <div class="w-full bg-[#77ACA2] h-3 rounded-full mb-2">
+                            <div class="bg-[#031926] h-3 rounded-full" style="width: 50%"></div>
+                        </div>
+                        <div class="flex justify-between text-[10px] font-bold text-[#031926]">
+                            <span>50% Complete</span>
+                            <div class="flex gap-4">
+                                <span>Start Date: 10 Jan</span>
+                                <span>End Date: 20 Jan</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="bg-[#9DBEBB] p-4 rounded-lg relative">
+                        <div class="flex justify-between items-center mb-2">
+                            <h4 class="font-bold text-[#031926]">Project 2</h4>
+                            <span class="text-xs font-bold text-gray-700">1/3 Tasks</span>
+                        </div>
+                        <div class="w-full bg-[#77ACA2] h-3 rounded-full mb-2">
+                            <div class="bg-[#031926] h-3 rounded-full" style="width: 25%"></div>
+                        </div>
+                        <div class="flex justify-between text-[10px] font-bold text-[#031926]">
+                            <span>25% Complete</span>
+                            <div class="flex gap-4">
+                                <span>Start Date: 15 Jan</span>
+                                <span>End Date: 25 Jan</span>
+                            </div>
+                        </div>
+                    </div>
+
+                     <div class="bg-[#9DBEBB] p-4 rounded-lg relative">
+                        <div class="flex justify-between items-center mb-2">
+                            <h4 class="font-bold text-[#031926]">Project 3</h4>
+                            <span class="text-xs font-bold text-gray-700">0/5 Tasks</span>
+                        </div>
+                        <div class="w-full bg-[#77ACA2] h-3 rounded-full mb-2">
+                            <div class="bg-[#031926] h-3 rounded-full" style="width: 5%"></div>
+                        </div>
+                        <div class="flex justify-between text-[10px] font-bold text-[#031926]">
+                            <span>5% Complete</span>
+                            <div class="flex gap-4">
+                                <span>Start Date: 20 Jan</span>
+                                <span>End Date: 30 Jan</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="bg-[#9DBEBB] p-4 rounded-lg relative">
+                        <div class="flex justify-between items-center mb-2">
+                            <h4 class="font-bold text-[#031926]">Project 4</h4>
+                            <span class="text-xs font-bold text-gray-700">5/5 Tasks</span>
+                        </div>
+                        <div class="w-full bg-[#77ACA2] h-3 rounded-full mb-2">
+                            <div class="bg-[#031926] h-3 rounded-full" style="width: 100%"></div>
+                        </div>
+                        <div class="flex justify-between text-[10px] font-bold text-[#031926]">
+                            <span>100% Complete</span>
+                            <div class="flex gap-4">
+                                <span>Start Date: 01 Jan</span>
+                                <span>End Date: 10 Jan</span>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+            <div class="col-span-7 flex flex-col h-full">
+                
+                <div class="flex justify-between items-end mb-4">
+                    <div>
+                        <label class="block text-sm font-bold text-[#031926] mb-1 flex items-center gap-1">
+                            <i data-lucide="filter" class="w-4 h-4"></i> Filter by Date
+                        </label>
+                        <div class="relative">
+                            <select class="appearance-none bg-[#D1D5DB] text-[#031926] font-medium px-4 py-2 pr-8 rounded-lg shadow-sm focus:outline-none cursor-pointer w-40">
+                                <option>All</option>
+                                <option>This Week</option>
+                                <option>This Month</option>
+                            </select>
+                            <div class="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-[#031926]">
+                                <i data-lucide="chevron-down" class="w-4 h-4"></i>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <a href="pm-create-task.html" class="bg-[#468189] hover:bg-[#3A6B72] text-white font-bold px-6 py-2 rounded-lg shadow-md flex items-center gap-2 transition-colors">
+                        <i data-lucide="plus" class="w-4 h-4"></i>
+                        Create Task
+                    </a>
+                </div>
+
+                <div class="grid grid-cols-2 gap-4 overflow-y-auto pb-4">
+                    
+                    <div class="bg-[#D1D5DB] p-4 rounded-xl shadow-sm border border-transparent hover:border-[#468189] transition-all">
+                        <div class="flex justify-between items-start mb-2">
+                            <h4 class="font-bold text-[#031926] text-lg">Project 1</h4>
+                            <button onclick="cycleStatus(this)" class="bg-[#468189] text-white text-[10px] font-bold px-2 py-1 rounded-full cursor-pointer select-none hover:opacity-80">
+                                Active
+                            </button>
+                        </div>
+                        <p class="text-gray-600 text-sm mb-4">Project Description goes here...</p>
+                        
+                        <div class="flex items-center gap-1 text-[10px] font-bold text-[#031926] mb-1">
+                            <i data-lucide="user" class="w-3 h-3"></i> Created by: Admin
+                        </div>
+                        <div class="flex items-center gap-1 text-[10px] font-bold text-[#031926] mb-3">
+                            <i data-lucide="calendar" class="w-3 h-3"></i> Start Date: 2026-01-10
+                        </div>
+                        
+                        <div class="flex justify-end gap-2">
+                            <a href="edit.html" class="text-gray-600 hover:text-[#031926]">
+                                <i data-lucide="file-edit" class="w-4 h-4"></i>
+                            </a>
+                            <a href="delete.html" class="text-gray-600 hover:text-red-600">
+                                <i data-lucide="trash-2" class="w-4 h-4"></i>
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="bg-[#D1D5DB] p-4 rounded-xl shadow-sm border border-transparent hover:border-[#468189] transition-all">
+                        <div class="flex justify-between items-start mb-2">
+                            <h4 class="font-bold text-[#031926] text-lg">Project 2</h4>
+                            <button onclick="cycleStatus(this)" class="bg-[#468189] text-white text-[10px] font-bold px-2 py-1 rounded-full cursor-pointer select-none hover:opacity-80">
+                                Active
+                            </button>
+                        </div>
+                        <p class="text-gray-600 text-sm mb-4">Project Description goes here...</p>
+                        
+                        <div class="flex items-center gap-1 text-[10px] font-bold text-[#031926] mb-1">
+                            <i data-lucide="user" class="w-3 h-3"></i> Created by: Admin
+                        </div>
+                        <div class="flex items-center gap-1 text-[10px] font-bold text-[#031926] mb-3">
+                            <i data-lucide="calendar" class="w-3 h-3"></i> Start Date: 2026-01-15
+                        </div>
+                        
+                        <div class="flex justify-end gap-2">
+                            <button class="text-gray-600 hover:text-[#031926]"><i data-lucide="file-edit" class="w-4 h-4"></i></button>
+                            <button class="text-gray-600 hover:text-red-600"><i data-lucide="trash-2" class="w-4 h-4"></i></button>
+                        </div>
+                    </div>
+
+                    <div class="bg-[#D1D5DB] p-4 rounded-xl shadow-sm border border-transparent hover:border-[#468189] transition-all">
+                        <div class="flex justify-between items-start mb-2">
+                            <h4 class="font-bold text-[#031926] text-lg">Project 3</h4>
+                            <button onclick="cycleStatus(this)" class="bg-[#468189] text-white text-[10px] font-bold px-2 py-1 rounded-full cursor-pointer select-none hover:opacity-80">
+                                Active
+                            </button>
+                        </div>
+                        <p class="text-gray-600 text-sm mb-4">Project Description goes here...</p>
+                        
+                        <div class="flex items-center gap-1 text-[10px] font-bold text-[#031926] mb-1">
+                            <i data-lucide="user" class="w-3 h-3"></i> Created by: Admin
+                        </div>
+                        <div class="flex items-center gap-1 text-[10px] font-bold text-[#031926] mb-3">
+                            <i data-lucide="calendar" class="w-3 h-3"></i> Start Date: 2026-01-20
+                        </div>
+                        
+                        <div class="flex justify-end gap-2">
+                            <button class="text-gray-600 hover:text-[#031926]"><i data-lucide="file-edit" class="w-4 h-4"></i></button>
+                            <button class="text-gray-600 hover:text-red-600"><i data-lucide="trash-2" class="w-4 h-4"></i></button>
+                        </div>
+                    </div>
+
+                    <div class="bg-[#D1D5DB] p-4 rounded-xl shadow-sm border border-transparent hover:border-[#468189] transition-all">
+                        <div class="flex justify-between items-start mb-2">
+                            <h4 class="font-bold text-[#031926] text-lg">Project 4</h4>
+                            <button onclick="cycleStatus(this)" class="bg-[#77ACA2] text-white text-[10px] font-bold px-2 py-1 rounded-full cursor-pointer select-none hover:opacity-80">
+                                Completed
+                            </button>
+                        </div>
+                        <p class="text-gray-600 text-sm mb-4">Project Description goes here...</p>
+                        
+                        <div class="flex items-center gap-1 text-[10px] font-bold text-[#031926] mb-1">
+                            <i data-lucide="user" class="w-3 h-3"></i> Created by: Admin
+                        </div>
+                        <div class="flex items-center gap-1 text-[10px] font-bold text-[#031926] mb-3">
+                            <i data-lucide="calendar" class="w-3 h-3"></i> Start Date: 2026-01-20
+                        </div>
+                        
+                        <div class="flex justify-end gap-2">
+                            <button class="text-gray-600 hover:text-[#031926]"><i data-lucide="file-edit" class="w-4 h-4"></i></button>
+                            <button class="text-gray-600 hover:text-red-600"><i data-lucide="trash-2" class="w-4 h-4"></i></button>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <script>
+        lucide.createIcons();
+
+        // LOGIC: Toggle Project Status
+        // Order: Active -> Completed -> On Hold -> Planned -> Active
+        function cycleStatus(btn) {
+            const currentStatus = btn.innerText;
+            
+            if (currentStatus === "Active") {
+                btn.innerText = "Completed";
+                btn.className = "bg-[#77ACA2] text-white text-[10px] font-bold px-2 py-1 rounded-full cursor-pointer select-none hover:opacity-80"; 
+            } else if (currentStatus === "Completed") {
+                btn.innerText = "On Hold";
+                btn.className = "bg-yellow-600 text-white text-[10px] font-bold px-2 py-1 rounded-full cursor-pointer select-none hover:opacity-80";
+            } else if (currentStatus === "On Hold") {
+                btn.innerText = "Planned";
+                btn.className = "bg-gray-500 text-white text-[10px] font-bold px-2 py-1 rounded-full cursor-pointer select-none hover:opacity-80";
+            } else {
+                btn.innerText = "Active";
+                btn.className = "bg-[#468189] text-white text-[10px] font-bold px-2 py-1 rounded-full cursor-pointer select-none hover:opacity-80";
+            }
+        }
+    </script>
+</body>
+</html>

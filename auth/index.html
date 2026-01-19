@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ExecuTask - Design Sandbox</title>
+    
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Arimo:ital,wght@0,400;0,700;1,700&display=swap" rel="stylesheet">
+    
+    <style>
+        body { font-family: 'Arimo', sans-serif; }
+    </style>
+</head>
+<body class="bg-[#F4E9CD]">
+
+    <div id="landing-view" class="min-h-screen flex flex-col items-center justify-center p-4 text-center">
+        
+        <div class="-mb-40 relative z-0">
+            <img src="../assets/ExecuTask LOGO 1.png" alt="ExecuTask Logo" class="w-[600px] h-auto object-contain mx-auto mix-blend-multiply">
+        </div>
+
+        <p class="text-[#468189] text-[40px] md:text-[32px] font-bold italic mb-12 leading-tight relative z-10">
+            ASSIGN SMARTER. DELIVER FASTER.
+        </p>
+
+        <button onclick="toggleView('role')" class="bg-[#77ACA2] hover:bg-[#5a9389] text-[#031926] font-semibold px-8 py-3 rounded-lg transition-colors cursor-pointer shadow-lg relative z-10">
+            Get Started
+        </button>
+    </div>
+
+    <div id="role-view" class="hidden min-h-screen relative">
+        
+        <header class="absolute top-4 left-4">
+            <button onclick="toggleView('landing')" class="flex items-center gap-2 hover:opacity-80 transition-opacity cursor-pointer">
+                <div class="w-8 h-8">
+                    <svg viewBox="0 0 120 120" class="w-full h-full">
+                        <path d="M60 15 A45 45 0 1 1 20 60" fill="none" stroke="#468189" stroke-width="10" stroke-linecap="round" />
+                        <polygon points="15,35 35,35 25,15" fill="#468189" transform="rotate(-30 25 30)" />
+                        <path d="M40 60 L55 75 L85 40" fill="none" stroke="#468189" stroke-width="10" stroke-linecap="round" stroke-linejoin="round" />
+                    </svg>
+                </div>
+                <span class="text-lg font-bold text-[#031926]">ExecuTask</span>
+            </button>
+        </header>
+
+        <main class="min-h-screen flex items-center justify-center">
+            <div class="flex flex-col md:flex-row gap-8">
+                
+                <div class="flex flex-col items-center">
+                    <button onclick="toggleView('admin-login')" class="w-28 h-28 bg-[#77ACA2] rounded-xl shadow-md flex items-center justify-center hover:bg-[#5a9389] transition-colors cursor-pointer">
+                        <i data-lucide="shield" class="w-12 h-12 text-[#031926]"></i>
+                    </button>
+                    <span class="mt-3 text-[#031926] text-sm font-medium">Admin</span>
+                </div>
+
+                <div class="flex flex-col items-center">
+                    <button onclick="toggleView('pm-login')" class="w-28 h-28 bg-[#77ACA2] rounded-xl shadow-md flex items-center justify-center hover:bg-[#5a9389] transition-colors cursor-pointer">
+                        <i data-lucide="users" class="w-12 h-12 text-[#031926]"></i>
+                    </button>
+                    <span class="mt-3 text-[#031926] text-sm font-medium">Project Manager</span>
+                </div>
+
+                <div class="flex flex-col items-center">
+                    <button onclick="toggleView('tm-login')" class="w-28 h-28 bg-[#77ACA2] rounded-xl shadow-md flex items-center justify-center hover:bg-[#5a9389] transition-colors cursor-pointer">
+                        <i data-lucide="user" class="w-12 h-12 text-[#031926]"></i>
+                    </button>
+                    <span class="mt-3 text-[#031926] text-sm font-medium">Team Member</span>
+                </div>
+
+            </div>
+        </main>
+
+        <footer class="absolute bottom-4 right-4">
+            <button onclick="toggleView('landing')" class="flex items-center gap-2 text-[#031926] hover:opacity-70 transition-opacity cursor-pointer">
+                <i data-lucide="undo-2" class="w-5 h-5"></i>
+                <span class="font-medium">Back</span>
+            </button>
+        </footer>
+    </div>
+
+    <div id="admin-login-view" class="hidden min-h-screen flex flex-col items-center justify-center relative">
+        <button onclick="toggleView('landing')" class="mb-6 flex flex-col items-center hover:opacity-80 transition-opacity cursor-pointer">
+            <div class="w-16 h-16 mb-2">
+                <svg viewBox="0 0 120 120" class="w-full h-full">
+                    <path d="M60 15 A45 45 0 1 1 20 60" fill="none" stroke="#468189" stroke-width="8" stroke-linecap="round" />
+                    <polygon points="15,35 35,35 25,15" fill="#468189" transform="rotate(-30 25 30)" />
+                    <path d="M40 60 L55 75 L85 40" fill="none" stroke="#468189" stroke-width="8" stroke-linecap="round" stroke-linejoin="round" />
+                </svg>
+            </div>
+            <h2 class="text-2xl font-bold text-[#031926]">ExecuTask</h2>
+        </button>
+
+        <div class="bg-[#D1D5DB] w-full max-w-md p-8 rounded-lg shadow-xl">
+            <div class="flex flex-col items-center mb-6">
+                <div class="w-16 h-16 bg-[#77ACA2] rounded-full flex items-center justify-center mb-3">
+                    <i data-lucide="user" class="w-8 h-8 text-[#031926]"></i>
+                </div>
+                <h3 class="text-xl font-bold text-[#031926]">Admin Login</h3>
+                <p class="text-xs text-gray-700 font-bold mt-1">Enter your credentials to continue</p>
+            </div>
+
+            <form class="space-y-4" onsubmit="event.preventDefault(); window.location.href='../admin/dashboard.html';">
+                <div>
+                    <label class="block text-sm font-bold text-[#031926] mb-1">Admin ID</label>
+                    <div class="relative">
+                        <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+                            <i data-lucide="user" class="w-4 h-4 text-gray-600"></i>
+                        </div>
+                        <input type="text" class="w-full pl-10 pr-3 py-2 bg-[#9DBEBB] rounded-md placeholder-gray-600 focus:outline-none focus:ring-2 focus:ring-[#468189]" placeholder="Enter your User ID">
+                    </div>
+                </div>
+                <div>
+                    <label class="block text-sm font-bold text-[#031926] mb-1">Password</label>
+                    <div class="relative">
+                        <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+                            <i data-lucide="lock" class="w-4 h-4 text-gray-600"></i>
+                        </div>
+                        <input type="password" class="w-full pl-10 pr-3 py-2 bg-[#9DBEBB] rounded-md placeholder-gray-600 focus:outline-none focus:ring-2 focus:ring-[#468189]" placeholder="Enter your Password">
+                    </div>
+                </div>
+                <button type="submit" class="block w-full text-center bg-[#468189] hover:bg-[#3A6B72] text-white font-bold py-2 rounded transition-colors mt-4 cursor-pointer shadow-lg">
+                    Login
+                </button>
+            </form>
+
+            <div class="flex justify-between items-center mt-6 pt-4 border-t border-gray-400">
+                <a href="#" class="text-sm font-bold text-[#468189] underline hover:text-[#3A6B72]">Forgot Password</a>
+                <button onclick="toggleView('role')" class="flex items-center gap-1 text-[#468189] hover:opacity-80 transition-opacity font-bold text-sm cursor-pointer">
+                    <i data-lucide="undo-2" class="w-4 h-4"></i>
+                    Back
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <div id="pm-login-view" class="hidden min-h-screen flex flex-col items-center justify-center relative">
+        <button onclick="toggleView('landing')" class="mb-6 flex flex-col items-center hover:opacity-80 transition-opacity cursor-pointer">
+            <div class="w-16 h-16 mb-2">
+                <svg viewBox="0 0 120 120" class="w-full h-full">
+                    <path d="M60 15 A45 45 0 1 1 20 60" fill="none" stroke="#468189" stroke-width="8" stroke-linecap="round" />
+                    <polygon points="15,35 35,35 25,15" fill="#468189" transform="rotate(-30 25 30)" />
+                    <path d="M40 60 L55 75 L85 40" fill="none" stroke="#468189" stroke-width="8" stroke-linecap="round" stroke-linejoin="round" />
+                </svg>
+            </div>
+            <h2 class="text-2xl font-bold text-[#031926]">ExecuTask</h2>
+        </button>
+
+        <div class="bg-[#D1D5DB] w-full max-w-md p-8 rounded-lg shadow-xl">
+            <div class="flex flex-col items-center mb-6">
+                <div class="w-16 h-16 bg-[#77ACA2] rounded-full flex items-center justify-center mb-3">
+                    <i data-lucide="user" class="w-8 h-8 text-[#031926]"></i>
+                </div>
+                <h3 class="text-xl font-bold text-[#031926]">Project Manager Login</h3>
+                <p class="text-xs text-gray-700 font-bold mt-1">Enter your credentials to continue</p>
+            </div>
+
+            <form class="space-y-4" onsubmit="event.preventDefault(); window.location.href='../proj-manager/dashboard.html';">
+                <div>
+                    <label class="block text-sm font-bold text-[#031926] mb-1">Project Manager ID</label>
+                    <div class="relative">
+                        <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+                            <i data-lucide="user" class="w-4 h-4 text-gray-600"></i>
+                        </div>
+                        <input type="text" class="w-full pl-10 pr-3 py-2 bg-[#9DBEBB] rounded-md placeholder-gray-600 focus:outline-none focus:ring-2 focus:ring-[#468189]" placeholder="Enter your User ID">
+                    </div>
+                </div>
+                <div>
+                    <label class="block text-sm font-bold text-[#031926] mb-1">Password</label>
+                    <div class="relative">
+                        <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+                            <i data-lucide="lock" class="w-4 h-4 text-gray-600"></i>
+                        </div>
+                        <input type="password" class="w-full pl-10 pr-3 py-2 bg-[#9DBEBB] rounded-md placeholder-gray-600 focus:outline-none focus:ring-2 focus:ring-[#468189]" placeholder="Enter your Password">
+                    </div>
+                </div>
+                <button type="submit" class="block w-full text-center bg-[#468189] hover:bg-[#3A6B72] text-white font-bold py-2 rounded transition-colors mt-4 cursor-pointer shadow-lg">
+                    Login
+                </button>
+            </form>
+
+            <div class="flex justify-between items-center mt-6 pt-4 border-t border-gray-400">
+                <a href="#" class="text-sm font-bold text-[#468189] underline hover:text-[#3A6B72]">Forgot Password</a>
+                <button onclick="toggleView('role')" class="flex items-center gap-1 text-[#468189] hover:opacity-80 transition-opacity font-bold text-sm cursor-pointer">
+                    <i data-lucide="undo-2" class="w-4 h-4"></i>
+                    Back
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <div id="tm-login-view" class="hidden min-h-screen flex flex-col items-center justify-center relative">
+        <button onclick="toggleView('landing')" class="mb-6 flex flex-col items-center hover:opacity-80 transition-opacity cursor-pointer">
+            <div class="w-16 h-16 mb-2">
+                <svg viewBox="0 0 120 120" class="w-full h-full">
+                    <path d="M60 15 A45 45 0 1 1 20 60" fill="none" stroke="#468189" stroke-width="8" stroke-linecap="round" />
+                    <polygon points="15,35 35,35 25,15" fill="#468189" transform="rotate(-30 25 30)" />
+                    <path d="M40 60 L55 75 L85 40" fill="none" stroke="#468189" stroke-width="8" stroke-linecap="round" stroke-linejoin="round" />
+                </svg>
+            </div>
+            <h2 class="text-2xl font-bold text-[#031926]">ExecuTask</h2>
+        </button>
+
+        <div class="bg-[#D1D5DB] w-full max-w-md p-8 rounded-lg shadow-xl">
+            <div class="flex flex-col items-center mb-6">
+                <div class="w-16 h-16 bg-[#77ACA2] rounded-full flex items-center justify-center mb-3">
+                    <i data-lucide="user" class="w-8 h-8 text-[#031926]"></i>
+                </div>
+                <h3 class="text-xl font-bold text-[#031926]">Team Member Login</h3>
+                <p class="text-xs text-gray-700 font-bold mt-1">Enter your credentials to continue</p>
+            </div>
+
+            <form class="space-y-4" onsubmit="event.preventDefault(); window.location.href='../team-member/dashboard.html';">
+                <div>
+                    <label class="block text-sm font-bold text-[#031926] mb-1">Team Member ID</label>
+                    <div class="relative">
+                        <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+                            <i data-lucide="user" class="w-4 h-4 text-gray-600"></i>
+                        </div>
+                        <input type="text" class="w-full pl-10 pr-3 py-2 bg-[#9DBEBB] rounded-md placeholder-gray-600 focus:outline-none focus:ring-2 focus:ring-[#468189]" placeholder="Enter your User ID">
+                    </div>
+                </div>
+
+                <div>
+                    <label class="block text-sm font-bold text-[#031926] mb-1">Password</label>
+                    <div class="relative">
+                        <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+                            <i data-lucide="lock" class="w-4 h-4 text-gray-600"></i>
+                        </div>
+                        <input type="password" class="w-full pl-10 pr-3 py-2 bg-[#9DBEBB] rounded-md placeholder-gray-600 focus:outline-none focus:ring-2 focus:ring-[#468189]" placeholder="Enter your Password">
+                    </div>
+                </div>
+
+                <button type="submit" class="block w-full text-center bg-[#468189] hover:bg-[#3A6B72] text-white font-bold py-2 rounded transition-colors mt-4 cursor-pointer shadow-lg">
+                    Login
+                </button>
+            </form>
+
+            <div class="flex justify-between items-center mt-6 pt-4 border-t border-gray-400">
+                <a href="#" class="text-sm font-bold text-[#468189] underline hover:text-[#3A6B72]">Forgot Password</a>
+                <button onclick="toggleView('role')" class="flex items-center gap-1 text-[#468189] hover:opacity-80 transition-opacity font-bold text-sm cursor-pointer">
+                    <i data-lucide="undo-2" class="w-4 h-4"></i>
+                    Back
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // 1. Initialize Icons
+        lucide.createIcons();
+
+        // 2. Navigation Function
+        function toggleView(target) {
+            // Get all views
+            const landing = document.getElementById('landing-view');
+            const role = document.getElementById('role-view');
+            const adminLogin = document.getElementById('admin-login-view');
+            const pmLogin = document.getElementById('pm-login-view');
+            const tmLogin = document.getElementById('tm-login-view');
+
+            // Hide everything first
+            landing.classList.add('hidden');
+            role.classList.add('hidden');
+            adminLogin.classList.add('hidden');
+            pmLogin.classList.add('hidden');
+            tmLogin.classList.add('hidden');
+
+            // Show the target
+            if (target === 'landing') {
+                landing.classList.remove('hidden');
+            } else if (target === 'role') {
+                role.classList.remove('hidden');
+            } else if (target === 'admin-login') {
+                adminLogin.classList.remove('hidden');
+            } else if (target === 'pm-login') {
+                pmLogin.classList.remove('hidden');
+            } else if (target === 'tm-login') {
+                tmLogin.classList.remove('hidden');
+            }
+            
+            // Re-initialize icons
+            lucide.createIcons();
+        }
+    </script>
+</body>
+</html>

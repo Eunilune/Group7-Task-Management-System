@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ExecuTask - PM History</title>
+    
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Arimo:ital,wght@0,400;0,700;1,700&display=swap" rel="stylesheet">
+    
+    <style>
+        body { font-family: 'Arimo', sans-serif; }
+        
+        /* Custom Scrollbar */
+        .custom-scrollbar::-webkit-scrollbar {
+            width: 8px;
+        }
+        .custom-scrollbar::-webkit-scrollbar-track {
+            background: rgba(0,0,0,0.05); 
+            border-radius: 4px;
+            margin: 4px 0;
+        }
+        .custom-scrollbar::-webkit-scrollbar-thumb {
+            background-color: #031926; 
+            border-radius: 4px;
+            border: 1px solid rgba(255,255,255,0.2); 
+        }
+    </style>
+</head>
+<body class="bg-[#F4E9CD] flex h-screen overflow-hidden">
+
+    <aside class="w-64 bg-[#D1D5DB] flex flex-col justify-between border-r border-gray-300 flex-shrink-0">
+        <div class="p-6">
+            <a href="../auth/index.html" class="flex items-center gap-2 mb-8 hover:opacity-80 transition-opacity">
+                <div class="w-8 h-8">
+                    <svg viewBox="0 0 120 120" class="w-full h-full">
+                        <path d="M60 15 A45 45 0 1 1 20 60" fill="none" stroke="#468189" stroke-width="10" stroke-linecap="round" />
+                        <polygon points="15,35 35,35 25,15" fill="#468189" transform="rotate(-30 25 30)" />
+                        <path d="M40 60 L55 75 L85 40" fill="none" stroke="#468189" stroke-width="10" stroke-linecap="round" stroke-linejoin="round" />
+                    </svg>
+                </div>
+                <span class="text-xl font-bold text-[#031926]">ExecuTask</span>
+            </a>
+
+            <nav class="space-y-2">
+                <a href="dashboard.html" class="flex items-center gap-3 px-4 py-3 text-gray-600 hover:bg-gray-200 rounded-lg transition-colors font-medium">
+                    <i data-lucide="layout-dashboard" class="w-5 h-5"></i> Dashboard
+                </a>
+                <a href="projects/index.html" class="flex items-center gap-3 px-4 py-3 text-gray-600 hover:bg-gray-200 rounded-lg transition-colors font-medium">
+                    <i data-lucide="folder-kanban" class="w-5 h-5"></i> Projects
+                </a>
+                <a href="#" class="flex items-center gap-3 px-4 py-3 bg-[#9DBEBB] rounded-lg text-[#031926] font-bold shadow-sm">
+                    <i data-lucide="history" class="w-5 h-5"></i> History
+                </a>
+            </nav>
+        </div>
+
+        <div class="p-6 border-t border-gray-400">
+            <div class="flex items-center gap-3 mb-4">
+                <div class="w-10 h-10 bg-gray-400 rounded-full flex items-center justify-center">
+                    <i data-lucide="user" class="w-6 h-6 text-[#031926]"></i>
+                </div>
+                <div>
+                    <p class="text-sm font-bold text-[#031926]">PM User</p>
+                    <p class="text-xs text-gray-600">ID: PM000001</p>
+                </div>
+            </div>
+            <a href="../auth/index.html" class="flex items-center gap-2 text-[#031926] font-bold hover:text-[#468189] transition-colors text-sm">
+                <i data-lucide="log-out" class="w-4 h-4"></i> Logout
+            </a>
+        </div>
+    </aside>
+
+    <main class="flex-1 flex flex-col h-screen overflow-hidden p-8">
+        
+        <header class="flex justify-between items-start mb-8 flex-shrink-0">
+            <div>
+                <h1 class="text-4xl font-bold text-[#031926] mb-1">Project Manager Dashboard</h1>
+                <p class="text-gray-700">Welcome, Project Manager! Track progress and drive success.</p>
+            </div>
+            <div class="flex items-center gap-2 text-[#031926] font-bold">
+                <i data-lucide="calendar" class="w-5 h-5"></i>
+                <span>10 January 2026</span>
+            </div>
+        </header>
+
+        <div class="grid grid-cols-4 gap-6 mb-8 flex-shrink-0">
+            <div class="bg-[#D1D5DB] p-4 rounded-xl shadow-sm relative">
+                <h3 class="font-bold text-[#031926]">To Do</h3>
+                <p class="text-4xl font-bold mt-2">1</p>
+                <div class="absolute top-4 right-4 w-10 h-10 bg-[#9DBEBB] rounded-full flex items-center justify-center">
+                    <i data-lucide="clipboard-list" class="w-5 h-5 text-[#031926]"></i>
+                </div>
+            </div>
+            <div class="bg-[#D1D5DB] p-4 rounded-xl shadow-sm relative">
+                <h3 class="font-bold text-[#031926]">In Progress</h3>
+                <p class="text-4xl font-bold mt-2">2</p>
+                <div class="absolute top-4 right-4 w-10 h-10 bg-[#9DBEBB] rounded-full flex items-center justify-center">
+                    <i data-lucide="clock" class="w-5 h-5 text-[#031926]"></i>
+                </div>
+            </div>
+            <div class="bg-[#D1D5DB] p-4 rounded-xl shadow-sm relative">
+                <h3 class="font-bold text-[#031926]">In Review</h3>
+                <p class="text-4xl font-bold mt-2">1</p>
+                <div class="absolute top-4 right-4 w-10 h-10 bg-[#9DBEBB] rounded-full flex items-center justify-center">
+                    <i data-lucide="file-check" class="w-5 h-5 text-[#031926]"></i>
+                </div>
+            </div>
+            <div class="bg-[#D1D5DB] p-4 rounded-xl shadow-sm relative">
+                <h3 class="font-bold text-[#031926]">Completed</h3>
+                <p class="text-4xl font-bold mt-2">0</p>
+                <div class="absolute top-4 right-4 w-10 h-10 bg-[#9DBEBB] rounded-full flex items-center justify-center">
+                    <i data-lucide="check-circle" class="w-5 h-5 text-[#031926]"></i>
+                </div>
+            </div>
+        </div>
+
+        <div class="flex-1 grid grid-cols-2 gap-8 min-h-0">
+            
+            <div class="bg-[#D1D5DB] p-6 rounded-xl shadow-sm flex flex-col h-full">
+                <h3 class="font-bold text-[#031926] mb-4 text-lg">Recent Activity</h3>
+                
+                <div class="flex-1 overflow-y-auto custom-scrollbar pr-2 space-y-4">
+                    
+                    <div class="bg-[#9DBEBB] py-4 px-5 rounded-r-lg border-l-8 border-[#3A6B72] relative shadow-sm">
+                        <h4 class="font-bold text-[#031926] text-sm">Project 1</h4>
+                        <p class="text-xs text-gray-800 italic mt-1 mb-8">Ali Grace status changed to review.</p>
+                        <p class="text-[10px] font-bold text-[#031926]">Last edited: 2026 - 01 - 10</p>
+                    </div>
+
+                    <div class="bg-[#9DBEBB] py-4 px-5 rounded-r-lg border-l-8 border-[#3A6B72] relative shadow-sm">
+                        <h4 class="font-bold text-[#031926] text-sm">Project 2</h4>
+                        <p class="text-xs text-gray-800 italic mt-1 mb-8">Task assigned to Team Member 1.</p>
+                        <p class="text-[10px] font-bold text-[#031926]">Last edited: 2026 - 01 - 09</p>
+                    </div>
+
+                     <div class="bg-[#9DBEBB] py-4 px-5 rounded-r-lg border-l-8 border-[#3A6B72] relative shadow-sm">
+                        <h4 class="font-bold text-[#031926] text-sm">Project 3</h4>
+                        <p class="text-xs text-gray-800 italic mt-1 mb-8">New project created.</p>
+                        <p class="text-[10px] font-bold text-[#031926]">Last edited: 2026 - 01 - 08</p>
+                    </div>
+
+                     <div class="bg-[#9DBEBB] py-4 px-5 rounded-r-lg border-l-8 border-[#3A6B72] relative shadow-sm">
+                        <h4 class="font-bold text-[#031926] text-sm">Project 4</h4>
+                        <p class="text-xs text-gray-800 italic mt-1 mb-8">Deadline extended.</p>
+                        <p class="text-[10px] font-bold text-[#031926]">Last edited: 2026 - 01 - 07</p>
+                    </div>
+
+                     <div class="bg-[#9DBEBB] py-4 px-5 rounded-r-lg border-l-8 border-[#3A6B72] relative shadow-sm">
+                        <h4 class="font-bold text-[#031926] text-sm">Project 5</h4>
+                        <p class="text-xs text-gray-800 italic mt-1 mb-8">Client feedback uploaded.</p>
+                        <p class="text-[10px] font-bold text-[#031926]">Last edited: 2026 - 01 - 06</p>
+                    </div>
+
+                </div>
+            </div>
+
+            <div class="bg-[#D1D5DB] p-6 rounded-xl shadow-sm flex flex-col h-full">
+                <h3 class="font-bold text-[#031926] mb-4 text-lg">Completed Task</h3>
+                
+                <div class="flex-1 overflow-y-auto custom-scrollbar pr-2 space-y-4">
+                    
+                    <div class="bg-[#9DBEBB] py-4 px-5 rounded-r-lg border-l-8 border-[#3A6B72] relative shadow-sm">
+                        <h4 class="font-bold text-[#031926] text-sm">Project 100</h4>
+                        <p class="text-xs text-gray-800 italic mt-1 mb-8">Project 100 task description...</p>
+                        <p class="text-[10px] font-bold text-[#031926]">Completed: 2026 - 01 - 05</p>
+                    </div>
+
+                    <div class="bg-[#9DBEBB] py-4 px-5 rounded-r-lg border-l-8 border-[#3A6B72] relative shadow-sm">
+                        <h4 class="font-bold text-[#031926] text-sm">Project 99</h4>
+                        <p class="text-xs text-gray-800 italic mt-1 mb-8">Final review completed.</p>
+                        <p class="text-[10px] font-bold text-[#031926]">Completed: 2025 - 12 - 20</p>
+                    </div>
+
+                     <div class="bg-[#9DBEBB] py-4 px-5 rounded-r-lg border-l-8 border-[#3A6B72] relative shadow-sm">
+                        <h4 class="font-bold text-[#031926] text-sm">Project 98</h4>
+                        <p class="text-xs text-gray-800 italic mt-1 mb-8">Deployment successful.</p>
+                        <p class="text-[10px] font-bold text-[#031926]">Completed: 2025 - 12 - 15</p>
+                    </div>
+
+                     <div class="bg-[#9DBEBB] py-4 px-5 rounded-r-lg border-l-8 border-[#3A6B72] relative shadow-sm">
+                        <h4 class="font-bold text-[#031926] text-sm">Project 97</h4>
+                        <p class="text-xs text-gray-800 italic mt-1 mb-8">UAT signoff received.</p>
+                        <p class="text-[10px] font-bold text-[#031926]">Completed: 2025 - 12 - 10</p>
+                    </div>
+                    
+                     <div class="bg-[#9DBEBB] py-4 px-5 rounded-r-lg border-l-8 border-[#3A6B72] relative shadow-sm">
+                        <h4 class="font-bold text-[#031926] text-sm">Project 96</h4>
+                        <p class="text-xs text-gray-800 italic mt-1 mb-8">Requirement analysis done.</p>
+                        <p class="text-[10px] font-bold text-[#031926]">Completed: 2025 - 12 - 05</p>
+                    </div>
+
+                </div>
+            </div>
+
+        </div>
+
+    </main>
+
+    <script>
+        lucide.createIcons();
+    </script>
+</body>
+</html>
