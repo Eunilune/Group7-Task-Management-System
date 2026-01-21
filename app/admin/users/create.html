@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ExecuTask - Create User</title>
+    
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Arimo:ital,wght@0,400;0,700;1,700&display=swap" rel="stylesheet">
+    
+    <style>
+        body { font-family: 'Arimo', sans-serif; }
+    </style>
+</head>
+<body class="bg-[#F4E9CD] min-h-screen flex flex-col items-center justify-center">
+
+    <a href="../../../app/landing.html" class="mb-6 flex flex-col items-center hover:opacity-80 transition-opacity cursor-pointer">
+        <div class="w-16 h-16 mb-2">
+            <svg viewBox="0 0 120 120" class="w-full h-full">
+                <path d="M60 15 A45 45 0 1 1 20 60" fill="none" stroke="#468189" stroke-width="8" stroke-linecap="round" />
+                <polygon points="15,35 35,35 25,15" fill="#468189" transform="rotate(-30 25 30)" />
+                <path d="M40 60 L55 75 L85 40" fill="none" stroke="#468189" stroke-width="8" stroke-linecap="round" stroke-linejoin="round" />
+            </svg>
+        </div>
+        <h2 class="text-2xl font-bold text-[#031926]">ExecuTask</h2>
+    </a>
+
+    <div class="bg-[#D1D5DB] w-full max-w-md p-8 rounded-lg shadow-xl">
+        <h3 class="text-xl font-bold text-[#031926] mb-6">Create New User</h3>
+
+        <form onsubmit="handleCreateUser(event)">
+            
+            <div class="mb-4">
+                <label class="block text-sm font-bold text-[#031926] mb-1">Full Name</label>
+                <input id="u-name" required type="text" class="w-full px-4 py-2 bg-[#9DBEBB] rounded-md placeholder-gray-600 italic focus:outline-none focus:ring-2 focus:ring-[#468189]" placeholder="e.g. John Doe">
+            </div>
+
+            <div class="mb-4">
+                <label class="block text-sm font-bold text-[#031926] mb-1">Email Address</label>
+                <input id="u-email" required type="email" class="w-full px-4 py-2 bg-[#9DBEBB] rounded-md placeholder-gray-600 italic focus:outline-none focus:ring-2 focus:ring-[#468189]" placeholder="john@executask.com">
+            </div>
+
+            <div class="mb-8">
+                <label class="block text-sm font-bold text-[#031926] mb-1">Role</label>
+                <div class="relative">
+                    <select id="u-role" class="w-full px-4 py-2 bg-[#9DBEBB] rounded-md text-[#031926] appearance-none focus:outline-none focus:ring-2 focus:ring-[#468189] cursor-pointer">
+                        <option value="Team Member">Team Member</option>
+                        <option value="Project Manager">Project Manager</option>
+                        <option value="Admin">Admin</option>
+                    </select>
+                    <div class="pointer-events-none absolute inset-y-0 right-0 flex items-center px-3 text-[#031926]">
+                        <i data-lucide="chevron-down" class="w-4 h-4"></i>
+                    </div>
+                </div>
+            </div>
+
+            <div class="flex gap-4">
+                <a href="index.html" class="flex-1 bg-[#9CA3AF] hover:bg-gray-500 text-[#031926] font-bold py-2 rounded transition-colors text-center">
+                    Cancel
+                </a>
+                
+                <button type="submit" class="flex-1 bg-[#468189] hover:bg-[#3A6B72] text-white font-bold py-2 rounded transition-colors shadow-lg">
+                    Create User
+                </button>
+            </div>
+
+        </form>
+    </div>
+
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <script src="../../../utils/storage.js"></script>
+
+    <script>
+        lucide.createIcons();
+
+        function handleCreateUser(e) {
+            e.preventDefault();
+
+            // 1. Gather Input
+            const name = document.getElementById('u-name').value;
+            const email = document.getElementById('u-email').value.trim(); // Trim whitespace
+            const role = document.getElementById('u-role').value;
+
+            // --- NEW: CHECK FOR DUPLICATES ---
+            const existingUsers = Storage.getUsers();
+            const emailExists = existingUsers.some(user => user.email.toLowerCase() === email.toLowerCase());
+
+            if (emailExists) {
+                alert("Error: A user with this email address already exists.");
+                return; // STOP here. Do not save.
+            }
+            // ---------------------------------
+
+            // 2. Generate a smart ID based on role
+            const prefix = role === 'Admin' ? 'ADMIN' : (role === 'Project Manager' ? 'PM' : 'TM');
+            const randomNum = Math.floor(1000 + Math.random() * 9000);
+            const newId = `${prefix}${randomNum}`;
+
+            // 3. Create User Object
+            const newUser = {
+                id: newId,
+                name: name,
+                email: email,
+                role: role,
+                status: 'Active'
+            };
+
+            // 4. Save to Storage
+            Storage.addUser(newUser);
+
+            // 5. Redirect
+            alert(`User ${name} created successfully!`);
+            window.location.href = 'index.html';
+        }
+    </script>

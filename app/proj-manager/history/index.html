@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ExecuTask - PM History</title>
+    
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Arimo:ital,wght@0,400;0,700;1,700&display=swap" rel="stylesheet">
+    
+    <style>
+        body { font-family: 'Arimo', sans-serif; }
+        
+        /* Custom Scrollbar */
+        .custom-scrollbar::-webkit-scrollbar { width: 8px; }
+        .custom-scrollbar::-webkit-scrollbar-track { background: rgba(0,0,0,0.05); border-radius: 4px; margin: 4px 0; }
+        .custom-scrollbar::-webkit-scrollbar-thumb { background-color: #031926; border-radius: 4px; border: 1px solid rgba(255,255,255,0.2); }
+    </style>
+</head>
+<body class="bg-[#F4E9CD] flex h-screen overflow-hidden">
+
+    <div id="sidebar-container"></div>
+
+    <main class="flex-1 flex flex-col h-screen overflow-hidden p-8">
+        
+        <header class="flex justify-between items-start mb-8 flex-shrink-0">
+            <div>
+                <h1 class="text-4xl font-bold text-[#031926] mb-1">Project Manager Dashboard</h1>
+                <p class="text-gray-700">Welcome, Project Manager! Track progress and drive success.</p>
+            </div>
+            <div class="flex items-center gap-2 text-[#031926] font-bold">
+                <i data-lucide="calendar" class="w-5 h-5"></i>
+                <span id="header-date">Loading...</span>
+            </div>
+        </header>
+
+        <div id="pm-stats-container"></div>
+
+        <div class="flex-1 grid grid-cols-2 gap-8 min-h-0">
+            
+            <div class="bg-[#D1D5DB] p-6 rounded-xl shadow-sm flex flex-col h-full">
+                <h3 class="font-bold text-[#031926] mb-4 text-lg">Recent Activity</h3>
+                
+                <div class="flex-1 overflow-y-auto custom-scrollbar pr-2 space-y-4">
+                    
+                    <div class="bg-[#9DBEBB] py-4 px-5 rounded-r-lg border-l-8 border-[#3A6B72] relative shadow-sm">
+                        <h4 class="font-bold text-[#031926] text-sm">Project 1</h4>
+                        <p class="text-xs text-gray-800 italic mt-1 mb-8">Ali Grace status changed to review.</p>
+                        <p class="text-[10px] font-bold text-[#031926]">Last edited: 2026 - 01 - 10</p>
+                    </div>
+
+                    <div class="bg-[#9DBEBB] py-4 px-5 rounded-r-lg border-l-8 border-[#3A6B72] relative shadow-sm">
+                        <h4 class="font-bold text-[#031926] text-sm">Project 2</h4>
+                        <p class="text-xs text-gray-800 italic mt-1 mb-8">Task assigned to Team Member 1.</p>
+                        <p class="text-[10px] font-bold text-[#031926]">Last edited: 2026 - 01 - 09</p>
+                    </div>
+
+                     <div class="bg-[#9DBEBB] py-4 px-5 rounded-r-lg border-l-8 border-[#3A6B72] relative shadow-sm">
+                        <h4 class="font-bold text-[#031926] text-sm">Project 3</h4>
+                        <p class="text-xs text-gray-800 italic mt-1 mb-8">New project created.</p>
+                        <p class="text-[10px] font-bold text-[#031926]">Last edited: 2026 - 01 - 08</p>
+                    </div>
+                    
+                    <div class="bg-[#9DBEBB] py-4 px-5 rounded-r-lg border-l-8 border-[#3A6B72] relative shadow-sm">
+                        <h4 class="font-bold text-[#031926] text-sm">Project 4</h4>
+                        <p class="text-xs text-gray-800 italic mt-1 mb-8">Deadline extended.</p>
+                        <p class="text-[10px] font-bold text-[#031926]">Last edited: 2026 - 01 - 07</p>
+                    </div>
+
+                    <div class="bg-[#9DBEBB] py-4 px-5 rounded-r-lg border-l-8 border-[#3A6B72] relative shadow-sm">
+                        <h4 class="font-bold text-[#031926] text-sm">Project 5</h4>
+                        <p class="text-xs text-gray-800 italic mt-1 mb-8">Client feedback uploaded.</p>
+                        <p class="text-[10px] font-bold text-[#031926]">Last edited: 2026 - 01 - 06</p>
+                    </div>
+
+                </div>
+            </div>
+
+            <div class="bg-[#D1D5DB] p-6 rounded-xl shadow-sm flex flex-col h-full">
+                <h3 class="font-bold text-[#031926] mb-4 text-lg">Completed Task</h3>
+                
+                <div class="flex-1 overflow-y-auto custom-scrollbar pr-2 space-y-4">
+                    
+                    <div class="bg-[#9DBEBB] py-4 px-5 rounded-r-lg border-l-8 border-[#3A6B72] relative shadow-sm">
+                        <h4 class="font-bold text-[#031926] text-sm">Project 100</h4>
+                        <p class="text-xs text-gray-800 italic mt-1 mb-8">Project 100 task description...</p>
+                        <p class="text-[10px] font-bold text-[#031926]">Completed: 2026 - 01 - 05</p>
+                    </div>
+
+                    <div class="bg-[#9DBEBB] py-4 px-5 rounded-r-lg border-l-8 border-[#3A6B72] relative shadow-sm">
+                        <h4 class="font-bold text-[#031926] text-sm">Project 99</h4>
+                        <p class="text-xs text-gray-800 italic mt-1 mb-8">Final review completed.</p>
+                        <p class="text-[10px] font-bold text-[#031926]">Completed: 2025 - 12 - 20</p>
+                    </div>
+                    
+                    <div class="bg-[#9DBEBB] py-4 px-5 rounded-r-lg border-l-8 border-[#3A6B72] relative shadow-sm">
+                        <h4 class="font-bold text-[#031926] text-sm">Project 98</h4>
+                        <p class="text-xs text-gray-800 italic mt-1 mb-8">Deployment successful.</p>
+                        <p class="text-[10px] font-bold text-[#031926]">Completed: 2025 - 12 - 15</p>
+                    </div>
+
+                    <div class="bg-[#9DBEBB] py-4 px-5 rounded-r-lg border-l-8 border-[#3A6B72] relative shadow-sm">
+                        <h4 class="font-bold text-[#031926] text-sm">Project 97</h4>
+                        <p class="text-xs text-gray-800 italic mt-1 mb-8">UAT signoff received.</p>
+                        <p class="text-[10px] font-bold text-[#031926]">Completed: 2025 - 12 - 10</p>
+                    </div>
+
+                     <div class="bg-[#9DBEBB] py-4 px-5 rounded-r-lg border-l-8 border-[#3A6B72] relative shadow-sm">
+                        <h4 class="font-bold text-[#031926] text-sm">Project 96</h4>
+                        <p class="text-xs text-gray-800 italic mt-1 mb-8">Requirement analysis done.</p>
+                        <p class="text-[10px] font-bold text-[#031926]">Completed: 2025 - 12 - 05</p>
+                    </div>
+
+                </div>
+            </div>
+
+        </div>
+
+    </main>
+
+    <script src="https://unpkg.com/lucide@latest"></script>
+
+    <script src="../../../components/proj-manager/sidebar.js"></script>
+    <script src="../../../components/current-date.js"></script>
+    <script src="../../../components/proj-manager/pm-stats.js"></script>
+
+    <script>
+        // Init Sidebar specifically for 'history' page
+        renderPMSidebar('history');
+        
+        // Init Icons
+        lucide.createIcons();
+    </script>
+</body>
+</html>

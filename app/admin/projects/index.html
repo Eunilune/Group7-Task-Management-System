@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ExecuTask - Admin Projects</title>
+    
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Arimo:ital,wght@0,400;0,700;1,700&display=swap" rel="stylesheet">
+    
+    <style>
+        body { font-family: 'Arimo', sans-serif; }
+        /* Custom scrollbar */
+        .custom-scrollbar::-webkit-scrollbar { width: 8px; }
+        .custom-scrollbar::-webkit-scrollbar-track { background: #D1D5DB; border-radius: 4px; }
+        .custom-scrollbar::-webkit-scrollbar-thumb { background: #031926; border-radius: 4px; }
+    </style>
+</head>
+<body class="bg-[#F4E9CD] flex h-screen overflow-hidden">
+
+    <div id="sidebar-container"></div>
+
+    <main class="flex-1 overflow-y-auto p-8">
+        
+        <header class="flex justify-between items-start mb-8">
+            <div>
+                <h1 class="text-4xl font-bold text-[#031926] mb-1">Admin Dashboard</h1>
+                <p class="text-gray-700">Welcome, Admin! Track progress and drive success.</p>
+            </div>
+            <div class="flex items-center gap-2 text-[#031926] font-bold">
+                <i data-lucide="calendar" class="w-5 h-5"></i>
+                <span id="header-date">Loading...</span>
+            </div>
+        </header>
+
+        <div id="admin-stats-container"></div>
+
+        <div class="grid grid-cols-12 gap-8 h-[500px]">
+            
+            <div id="admin-progress-widget-container" class="col-span-5 bg-[#D1D5DB] rounded-xl shadow-sm p-6 flex flex-col h-full">
+                </div>
+
+            <div id="admin-project-list-container" class="col-span-7 flex flex-col h-full">
+                </div>
+
+        </div>
+    </main>
+
+    <script src="../../../utils/storage.js"></script> 
+
+    <script src="../../../components/admin/sidebar.js"></script>
+    <script src="../../../components/current-date.js"></script>
+    <script src="../../../components/dashboard-stats.js"></script>
+    <script src="../../../components/admin/admin-progress.js"></script>
+    <script src="../../../components/admin/project-list.js"></script>
+
+    <script>
+        renderAdminSidebar('projects');
+        lucide.createIcons();
+    </script>
+</body>
+</html>
